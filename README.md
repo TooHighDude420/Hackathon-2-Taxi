@@ -8,7 +8,6 @@ Hitchtracker is een project voor mensen die taxis gebruiken. Hitchtracker zorgt 
 
 - [Features](#features)
 - [Installation](#installation)
-- [License](#license)
 
 ## Features
 
@@ -31,10 +30,6 @@ git clone https://github.com/TooHighDude420/hackathon-2-taxi.git
 cd hackathon-2-taxi
 docker compose up -d --build
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 

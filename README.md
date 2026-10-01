@@ -6,14 +6,7 @@ Hitchtracker is een project voor mensen die taxis gebruiken. Hitchtracker zorgt 
 
 ## Table of Contents
 
-- [Features](#features)
 - [Installation](#installation)
-
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
 
 ### Tech Stack
 

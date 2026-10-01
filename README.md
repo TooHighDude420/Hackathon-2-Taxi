@@ -1,0 +1,41 @@
+# Hackathon 2 Taxi
+
+Hitchtracker is een project voor mensen die taxis gebruiken. Hitchtracker zorgt ervoor dat je nooit te veel meer moet betalen (Opleiding opdracht)
+
+![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [License](#license)
+
+## Features
+
+- Feature 1
+- Feature 2
+- Feature 3
+
+### Tech Stack
+
+- **React**
+- **Javascript**
+- **Django**
+- **Python**
+- **SQLite**
+
+## Installation
+
+```bash
+git clone https://github.com/TooHighDude420/hackathon-2-taxi.git
+cd hackathon-2-taxi
+docker compose up -d --build
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with ❤ by [TooHighDude420](https://github.com/TooHighDude420)

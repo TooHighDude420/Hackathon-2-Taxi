@@ -48,4 +48,4 @@ class RideData(models.Model):
     expected_time_in_minutes = models.IntegerField()
     actual_time_in_minutes = models.IntegerField()
     expected_cost = models.DecimalField(max_digits=10, decimal_places=2)
-    final_cost = models.DecimalField(max_digits=10, decimal_places=2)
+    actual_cost = models.DecimalField(max_digits=10, decimal_places=2)

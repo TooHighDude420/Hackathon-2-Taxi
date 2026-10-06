@@ -20,6 +20,10 @@ function Nav() {
             Test
           </Link>
 
+          <Link to="/livelocation" className="rounded-lg px-4 py-2 font-medium text-gray-300 transition hover:bg-gray-800 hover:text-white">
+            Live Location
+          </Link>
+
           <Link
             to="/login"
             className="rounded-lg bg-blue-600 px-5 py-2 font-semibold text-white transition hover:bg-blue-700"

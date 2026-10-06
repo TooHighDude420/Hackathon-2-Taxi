@@ -11,7 +11,7 @@ const LiveLocation = () => {
     const [speedInteraction, setSpeedInteraction] = useState(null)
 
     return (
-        <div className="min-h-screen bg-white px-4 py-6">
+        <div className="px-4 py-6">
             <div className="mx-auto w-full max-w-md">
 
                 {/* Header */}
@@ -52,60 +52,61 @@ const LiveLocation = () => {
 
                 {/* Snelheid + limiet */}
                 <div className="mb-3 grid grid-cols-2 gap-2">
-                    <div className="rounded border-2 border-neutral-950 p-3 text-center">
-                        <div className="text-xs font-bold uppercase tracking-wide text-neutral-600">
+                    <div className="rounded-lg border border-gray-300 px-4 py-3 text-center">
+                        <p className="text-xs font-medium uppercase text-gray-500">
                             Snelheid
-                        </div>
-                        <div className={`text-xl font-bold ${speedStatus.textClass}`}>
+                        </p>
+                        <p className={`text-lg font-bold ${speedStatus.textClass}`}>
                             {CURRENT_SPEED_KMH} km/u
-                        </div>
+                        </p>
                     </div>
 
-                    <div className="rounded border-2 border-neutral-950 p-3 text-center">
-                        <div className="text-xs font-bold uppercase tracking-wide text-neutral-600">
+                    <div className="rounded-lg border border-gray-300 px-4 py-3 text-center">
+                        <p className="text-xs font-medium uppercase text-gray-500">
                             Limiet
-                        </div>
-                        <div className="text-xl font-bold">
+                        </p>
+                        <p className="text-lg font-bold text-gray-900">
                             {SPEED_LIMIT_KMH} km/u
-                        </div>
+                        </p>
                     </div>
                 </div>
 
                 {/* Snelheidswaarschuwing */}
                 {speedStatus.level !== 'ok' && speedInteraction !== 'dismissed' && (
-                    <div className="mb-4 flex flex-col gap-2 rounded border-2 border-neutral-950 p-3">
-                        <div className="text-sm font-extrabold">
+                    <div className="mb-4 rounded-lg border border-gray-300 p-4">
+                        <p className="mb-3 text-sm font-bold text-gray-900">
                             {speedStatus.label}
+                        </p>
+                        <div className="flex flex-col gap-6">
+                            {speedInteraction === 'reported' ? (
+                                <p className="text-xs text-gray-600">
+                                    Melding verstuurd, we hebben 'm opgeslagen.
+                                </p>
+                            ) : (
+                                <>
+                                    <p className="text-xs text-gray-600">
+                                        {speedStatus.description}
+                                    </p>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <button
+                                            type="button"
+                                            className="cursor-pointer rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
+                                            onClick={() => setSpeedInteraction('reported')}
+                                        >
+                                            Meld te hard rijden
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            className="cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-200"
+                                            onClick={() => setSpeedInteraction('dismissed')}
+                                        >
+                                            Negeren
+                                        </button>
+                                    </div>
+                                </>
+                            )}
                         </div>
-
-                        {speedInteraction === 'reported' ? (
-                            <div className="text-xs text-neutral-600">
-                                Melding verstuurd, we hebben 'm opgeslagen.
-                            </div>
-                        ) : (
-                            <>
-                                <div className="text-xs text-neutral-600">
-                                    {speedStatus.description}
-                                </div>
-                                <div className="flex gap-2">
-                                    <button
-                                        type="button"
-                                        className="h-8 flex-1 rounded border border-neutral-950 bg-neutral-950 text-xs font-bold text-white hover:bg-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
-                                        onClick={() => setSpeedInteraction('reported')}
-                                    >
-                                        Meld te hard rijden
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        className="h-8 flex-1 rounded border border-neutral-950 bg-white text-xs font-bold text-neutral-950 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
-                                        onClick={() => setSpeedInteraction('dismissed')}
-                                    >
-                                        Negeren
-                                    </button>
-                                </div>
-                            </>
-                        )}
                     </div>
                 )}
 

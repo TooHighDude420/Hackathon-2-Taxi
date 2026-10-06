@@ -35,24 +35,13 @@ function DistancePricing() {
         </header>
 
         <div className="flex-1 px-[13px] pb-5 pt-[26px]">
-          <div className="relative mb-[26px] h-[165px] overflow-hidden rounded-[4px] border border-neutral-950 bg-[#f0f0f0]" role="img" aria-label={`Schematische kaart van Nijmegen met route van ${trip.origin} naar ${trip.destination}`}>
-            <svg className="absolute inset-0 size-full" viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect width="400" height="220" fill="#f0f0f0" />
-              <path d="M-20 35 C65 58 91 8 162 34 S286 63 420 22 M-15 103 C58 78 103 137 183 103 S302 83 420 119 M-10 183 C68 147 116 205 207 174 S320 160 420 193" fill="none" stroke="#d4d4d4" strokeWidth="13" />
-              <path d="M40 -20 C68 47 35 82 78 124 S103 190 82 240 M177 -20 C146 39 195 69 161 113 S180 181 150 240 M301 -15 C265 51 331 87 290 135 S319 189 299 240" fill="none" stroke="#fafafa" strokeWidth="9" />
-              <path d="M63 152 C103 133 119 91 176 98 S245 136 319 67" fill="none" stroke="#171717" strokeWidth="3" strokeLinecap="round" />
-              <circle cx="63" cy="152" r="7" fill="#fff" stroke="#171717" strokeWidth="2" />
-              <circle cx="319" cy="67" r="7" fill="#171717" stroke="#fff" strokeWidth="2" />
-              <text x="20" y="194" fill="#525252" fontSize="12" fontFamily="sans-serif">Huidige locatie</text>
-              <text x="267" y="43" fill="#525252" fontSize="12" fontFamily="sans-serif">Bestemming</text>
-              <text x="171" y="172" fill="#737373" fontSize="13" fontFamily="sans-serif">NIJMEGEN</text>
-            </svg>
+          <div className="relative mb-[26px] h-[165px] overflow-hidden rounded-[4px] border border-neutral-950 bg-neutral-200" role="img" aria-label="Kaartlocatie Nijmegen">
           </div>
 
           <div className="mb-[26px] flex min-h-[72px] items-center gap-3 rounded-[4px] border border-neutral-950 px-3 py-2">
             <span className="size-[42px] shrink-0 rounded-full border border-neutral-950" aria-hidden="true" />
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-bold">J. de Vries</p>
+              <p className="text-xs font-bold">Jan Meeuwissen</p>
               <p className="text-[10px] text-neutral-500">★ 4,8 · XX-99-XX</p>
             </div>
             <span className="rounded-[3px] border border-neutral-950 px-3 py-1.5 text-[10px] font-semibold">Standaard</span>
@@ -69,11 +58,13 @@ function DistancePricing() {
             <span className="text-[17px] font-bold">{formattedPrice}</span>
           </div>
 
-          <p className="mt-2 text-center text-[11px] text-neutral-500" aria-live="polite">
-            {response === 'confirmed' && <span className="font-semibold text-neutral-950">Rit bevestigd.</span>}
-            {response === 'changed' && <span className="font-semibold text-neutral-950">Je kunt vertrek of bestemming aanpassen.</span>}
-            {response === 'cancelled' && <span className="font-semibold text-neutral-950">Ritaanvraag geannuleerd.</span>}
-          </p>
+          <div className="relative mt-2 h-4 text-center text-[11px] text-neutral-500" aria-live="polite">
+            <p className="absolute inset-x-0 top-0 m-0 whitespace-nowrap">
+              {response === 'confirmed' && <span className="font-semibold text-neutral-950">Rit bevestigd.</span>}
+              {response === 'changed' && <span className="font-semibold text-neutral-950">Je kunt vertrek of bestemming aanpassen.</span>}
+              {response === 'cancelled' && <span className="font-semibold text-neutral-950">Ritaanvraag geannuleerd.</span>}
+            </p>
+          </div>
         </div>
 
         <footer className="flex flex-col gap-1.5 px-3 pb-[9px] pt-[10px]">

@@ -13,15 +13,8 @@ function Nav() {
         </Link>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/test"
-            className="rounded-lg px-4 py-2 font-medium text-gray-300 transition hover:bg-gray-800 hover:text-white"
-          >
-            Test
-          </Link>
-
           <Link to="/livelocation" className="rounded-lg px-4 py-2 font-medium text-gray-300 transition hover:bg-gray-800 hover:text-white">
-            Live Location
+            Rit
           </Link>
 
           <Link

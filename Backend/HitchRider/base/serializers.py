@@ -1,5 +1,5 @@
 from django.contrib.auth.models import Group, User
-import HitchRider.base.models as md
+import base.models as md
 from rest_framework import serializers
 
 

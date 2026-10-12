@@ -31,5 +31,9 @@ router.register(r"ride_data", RideDataViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path("", include(router.urls)),
+    path("auth/register/", register),
+    path("auth/login/", login_view),
+    path("auth/logout/", logout_view),
+    path("auth/me/", me),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]

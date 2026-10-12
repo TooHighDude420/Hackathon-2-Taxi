@@ -144,9 +144,12 @@ const LiveLocation = () => {
                 </Link>
 
                 {/* Route beëindigen */}
-                <button className="w-full text-sm text-gray-500 underline transition hover:text-gray-700 cursor-pointer">
+                <Link
+                    to="/"
+                    className="block w-full text-center text-sm text-gray-500 underline transition hover:text-gray-700"
+                >
                     Rit beëindigen (noodgeval)
-                </button>
+                </Link>
             </div>
         </div>
     )

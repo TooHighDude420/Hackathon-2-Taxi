@@ -1,8 +1,12 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Maps from '../components/Maps.jsx'
+import { formatRate } from '../utils/taxi.js'
 
 function DistancePricing() {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const chosenTaxi = location.state?.taxi
   const trip = {
     origin: 'Huidige locatie',
     destination: 'Bestemming',
@@ -28,13 +32,26 @@ function DistancePricing() {
     setResponse(nextResponse)
   }
 
+  function goBack() {
+    // Direct op deze pagina geopend: er is geen vorige pagina in de app, dus naar de startpagina.
+    if (location.key === 'default') navigate('/')
+    else navigate(-1)
+  }
+
   return (
     <div className="px-4 py-6">
       <div className="mx-auto w-full max-w-md">
 
         {/* Header */}
         <div className="mb-4 flex items-center gap-3">
-          <span aria-hidden="true" className="text-lg text-gray-900">←</span>
+          <button
+            type="button"
+            onClick={goBack}
+            aria-label="Terug naar vorige pagina"
+            className="cursor-pointer text-lg text-gray-900 transition hover:text-gray-500"
+          >
+            ←
+          </button>
           <h1 className="font-bold text-gray-900">Route &amp; prijs</h1>
         </div>
 
@@ -47,8 +64,10 @@ function DistancePricing() {
         <div className="mb-3 flex items-center gap-3 rounded-lg border border-gray-300 px-4 py-3">
           <span className="size-10 shrink-0 rounded-full border border-gray-300" aria-hidden="true" />
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-bold text-gray-900">Jan Meeuwissen</p>
-            <p className="text-xs text-gray-500">★ 4,8 · XX-99-XX</p>
+            <p className="text-sm font-bold text-gray-900">{chosenTaxi ? chosenTaxi.name : 'Jan Meeuwissen'}</p>
+            <p className="text-xs text-gray-500">
+              {chosenTaxi ? `Chauffeur: ${chosenTaxi.driver} · ${formatRate(chosenTaxi)}` : '★ 4,8 · XX-99-XX'}
+            </p>
           </div>
           <span className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700">Standaard</span>
         </div>

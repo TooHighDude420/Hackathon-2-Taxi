@@ -15,4 +15,4 @@ COPY . /app/
 
 EXPOSE 8000
 
-CMD ["python", "HitchRider/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["sh", "-c", "python HitchRider/manage.py migrate && python HitchRider/manage.py runserver 0.0.0.0:8000"]

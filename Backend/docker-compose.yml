@@ -1,0 +1,16 @@
+services:
+  django-web:
+    build: .
+    container_name: django-backend-docker
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_DB_PATH: /app/data/db.sqlite3
+    env_file:
+      - .env
+    volumes:
+      - backend-data:/app/data
+
+volumes:
+  backend-data:
